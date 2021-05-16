@@ -7,8 +7,7 @@
     "lint": "eslint '*/**/*.ts' --quiet --fix",
     "format": "prettier '*/**/*.ts' -w",
     "test": "npx jest --passWithNoTests --runInBand --detectOpenHandles",
-    "test:ci": "npm test -- --ci --silent --noStackTrace --coverage --no-cache --reporters=default --reporters=jest-junit",
-    "prepare": "husky install"
+    "test:ci": "npm test -- --ci --silent --noStackTrace --coverage --no-cache --reporters=default --reporters=jest-junit"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
