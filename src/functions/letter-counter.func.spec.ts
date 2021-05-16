@@ -27,12 +27,12 @@ const makeSut = (): { sut: LetterCounter; stringUtilsStub: StringUtils } => {
     }
 }
 
-describe('LetterCounter.countDuplicatedsOnly', () => {
+describe('LetterCounter.countDuplicateOnly', () => {
     test('Should call StringUtils.groupByLetter with correct values', () => {
         const { sut, stringUtilsStub } = makeSut()
         const groupByLetterSpy = jest.spyOn(stringUtilsStub, 'groupByLetter')
 
-        sut.countDuplicatedsOnly('any_message')
+        sut.countDuplicateOnly('any_message')
         expect(groupByLetterSpy).toBeCalledWith('any_message')
         expect(groupByLetterSpy).toBeCalledTimes(1)
     })
@@ -40,7 +40,7 @@ describe('LetterCounter.countDuplicatedsOnly', () => {
     test('Should return only duplcated letters', () => {
         const { sut } = makeSut()
 
-        const dplicated = sut.countDuplicatedsOnly('test message')
+        const dplicated = sut.countDuplicateOnly('test message')
         expect(dplicated).toEqual({
             t: 2,
             e: 3,
@@ -48,7 +48,7 @@ describe('LetterCounter.countDuplicatedsOnly', () => {
         })
     })
 
-    test('Should return empty object as response when no duplicated provided', () => {
+    test('Should return empty object as response when no duplicate provided', () => {
         const { sut, stringUtilsStub } = makeSut()
 
         const fakeGroup = new Map<string, number>()
@@ -61,7 +61,7 @@ describe('LetterCounter.countDuplicatedsOnly', () => {
         fakeGroup.set('g', 1)
         stringUtilsStub.groupByLetter = () => fakeGroup
 
-        const dplicated = sut.countDuplicatedsOnly('abcdefg')
+        const dplicated = sut.countDuplicateOnly('abcdefg')
         expect(dplicated).toEqual({})
     })
 
@@ -70,7 +70,7 @@ describe('LetterCounter.countDuplicatedsOnly', () => {
 
         stringUtilsStub.groupByLetter = () => new Map<string, number>()
 
-        const dplicated = sut.countDuplicatedsOnly('')
+        const dplicated = sut.countDuplicateOnly('')
         expect(dplicated).toEqual({})
     })
 
@@ -82,7 +82,7 @@ describe('LetterCounter.countDuplicatedsOnly', () => {
         }
 
         expect(() => {
-            sut.countDuplicatedsOnly('any_message')
+            sut.countDuplicateOnly('any_message')
         }).toThrowError('any_error')
     })
 })

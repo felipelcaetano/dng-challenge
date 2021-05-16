@@ -10,12 +10,12 @@ const rl = readline.createInterface({
     output: process.stdout,
 })
 
-rl.question('Provide a text to calculate duplicated letters: ', (message) => {
+rl.question('Provide a text to calculate duplicate letters: ', (message) => {
     if (message === '') {
         throw Error('Provide a valid text!')
     }
 
-    const response = letterCounter.countDuplicatedsOnly(message)
-    console.log(`Duplicated letters:\n ${JSON.stringify(response, null, 2)}`)
+    const response = letterCounter.countDuplicateOnly(message)
+    console.log(`Duplicate letters:\n ${JSON.stringify(response, null, 2)}`)
     rl.close()
 })
