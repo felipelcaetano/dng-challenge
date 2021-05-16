@@ -13,8 +13,8 @@ export class StringUtilsHelper implements StringUtils {
                 const currEntries = curr.entries().next().value
 
                 if (prev.has(currEntries[0])) {
-                    let currResult = prev.get(currEntries[0]) || 0
-                    currResult += currEntries[1]
+                    let currResult = prev.get(currEntries[0]) ?? 0
+                    currResult += Number(currEntries[1])
                     prev.set(currEntries[0], currResult)
                     return prev
                 } else {
