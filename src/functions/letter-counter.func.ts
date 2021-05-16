@@ -14,7 +14,7 @@ export class LetterCounter {
         let response: CountDuplicatedsResult = {}
 
         groups.forEach((value: number, key: string) => {
-            if (key &&  key.trim() && value >= 2) {
+            if (key &&   key.trim() && value >= 2) {
                 response = { ...response, [key]: value }
             }
         })
