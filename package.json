@@ -34,6 +34,12 @@
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test:ci"
+    }
+  },
   "lint-staged": {
     "**/*.ts": "eslint --cache --fix",
     "*.js": "eslint --cache --fix"
