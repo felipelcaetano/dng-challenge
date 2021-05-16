@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+		"rvest.vs-code-prettier-eslint",
+    "orta.vscode-jest",
+    "firsttris.vscode-jest-runner",
+    "andys8.jest-snippets"
+	]
+}
