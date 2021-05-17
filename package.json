@@ -1,0 +1,54 @@
+{
+  "name": "dng-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint '*/**/*.ts' --quiet --fix",
+    "format": "prettier '*/**/*.ts' -w",
+    "test": "npx jest --passWithNoTests --runInBand --detectOpenHandles",
+    "test:ci": "npm test -- --ci --silent --noStackTrace --coverage --no-cache --reporters=default --reporters=jest-junit",
+    "run": "ts-node src/main"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@types/jest": "^26.0.20",
+    "@types/node": "15.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.14.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^4.3.8",
+    "jest": "^26.4.2",
+    "jest-junit": "^12.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged",
+      "commit-msg": "npx commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "**/*.ts": "eslint --cache --fix",
+    "*.js": "eslint --cache --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipelcaetano/dng-challenge.git"
+  },
+  "author": "Felipe Caetano",
+  "license": "ISC",
+  "description": "Domestic and General code challenge"
+}
